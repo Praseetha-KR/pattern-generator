@@ -36,19 +36,19 @@
 		<form>
 			<div class="form-group">
 				<label for="background">Background</label>
-				<input type="text" id="background" name="background">
+				<input type="color" id="background" name="background">
 			</div>
 			<div class="form-group">
 				<label for="stripe">Stripe</label>
-				<input type="text" id="stripe" name="stripe">
+				<input type="color" id="stripe" name="stripe">
 			</div>
 			<div class="form-group">
 				<label for="angle">Angle</label>
-				<input type="text" id="angle" name="angle">
+				<input type="range" id="angle" name="angle">
 			</div>
 			<div class="form-group">
 				<label for="tile">Tile size</label>
-				<input type="text" id="tile" name="tile">
+				<input type="range" id="tile" name="tile">
 			</div>
 		</form>
 	</div>
@@ -68,10 +68,10 @@
 			if (angle.value) { setBgImg(angle.value, stripe.value); } 
 			else { setBgImg(45, stripe.value); }
 		}
-		tile.onkeyup = function() {
+		tile.onchange = function() {
 			html.style.backgroundSize = tile.value + "px " + tile.value + "px";
 		}
-		angle.onkeyup = function() {
+		angle.onchange = function() {
 			if (stripe.value) { setBgImg(angle.value, stripe.value); } 
 			else { setBgImg(angle.value, "rgba(255,255,255,0.5)"); }
 		}
