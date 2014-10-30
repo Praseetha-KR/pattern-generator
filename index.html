@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gradient Generator</title>
+	<style>
+		html {
+			height: 100%;
+			background-color: deeppink;
+			background-image: linear-gradient(45deg, rgba(255,255,255,0.5) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.5) 75%, transparent 75%, transparent);
+			background-size: 30px 30px;
+		}
+		#settings {
+			background-color: rgba(255,255,255,0.8);
+			width: 10em;
+			text-align: left;
+			padding: 1em;
+			border-radius: 0.5em;
+		}
+	</style>
+</head>
+<body>
+	<div id="settings">
+		<form>
+			<label for="background">Background</label>
+			<input type="text" id="background" name="background"><br>
+			<label for="stripe">Stripe</label>
+			<input type="text" id="stripe" name="stripe"><br>
+			<label for="angle">Angle</label>
+			<input type="text" id="angle" name="angle"><br>
+			<label for="tile">Tile size</label>
+			<input type="text" id="tile" name="tile">
+		</form>
+	</div>
+	<script>
+		var html = document.getElementsByTagName("html")[0];
+		var bg = document.getElementById("background");
+		var stripe = document.getElementById("stripe");
+		var angle = document.getElementById("angle");
+		var tile = document.getElementById("tile");
+		bg.onkeyup = function() {
+			html.style.backgroundColor = bg.value;
+		}
+		stripe.onkeyup = function() {
+			if (angle.value) {
+				html.style.backgroundImage = "linear-gradient("+ angle.value + "deg, " + stripe.value + " 25%, transparent 25%, transparent 50%, " + stripe.value + " 50%, " + stripe.value + " 75%, transparent 75%, transparent)";
+			} else {
+				html.style.backgroundImage = "linear-gradient(45deg, " + stripe.value + " 25%, transparent 25%, transparent 50%, " + stripe.value + " 50%, " + stripe.value + " 75%, transparent 75%, transparent)";
+			}
+		}
+		tile.onkeyup = function() {
+			html.style.backgroundSize = tile.value + "px " + tile.value + "px";
+		}
+		angle.onkeyup = function() {
+			if (stripe.value) {
+				html.style.backgroundImage = "linear-gradient("+ angle.value + "deg, " + stripe.value + " 25%, transparent 25%, transparent 50%, " + stripe.value + " 50%, " + stripe.value + " 75%, transparent 75%, transparent)";
+			} else {
+				html.style.backgroundImage = "linear-gradient(" + angle.value + "deg, rgba(255,255,255,0.5) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.5) 75%, transparent 75%, transparent)";
+			}
+		}
+	</script>
+</body>
+</html>
