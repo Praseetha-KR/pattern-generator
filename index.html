@@ -12,24 +12,44 @@
 		}
 		#settings {
 			background-color: rgba(255,255,255,0.8);
-			width: 10em;
+			width: 14.5em;
 			text-align: left;
 			padding: 1em;
 			border-radius: 0.5em;
+		}
+		.form-group {
+			padding-bottom: 0.5em;
+		}
+		input, label {
+			display: block;
+		}
+		input[type="text"] {
+			border: 2px solid #CCC;
+			padding: 0.5em 0.2em;
+			font-size: 1em;
+			border-radius: 0.3em;
 		}
 	</style>
 </head>
 <body>
 	<div id="settings">
 		<form>
-			<label for="background">Background</label>
-			<input type="text" id="background" name="background"><br>
-			<label for="stripe">Stripe</label>
-			<input type="text" id="stripe" name="stripe"><br>
-			<label for="angle">Angle</label>
-			<input type="text" id="angle" name="angle"><br>
-			<label for="tile">Tile size</label>
-			<input type="text" id="tile" name="tile">
+			<div class="form-group">
+				<label for="background">Background</label>
+				<input type="text" id="background" name="background">
+			</div>
+			<div class="form-group">
+				<label for="stripe">Stripe</label>
+				<input type="text" id="stripe" name="stripe">
+			</div>
+			<div class="form-group">
+				<label for="angle">Angle</label>
+				<input type="text" id="angle" name="angle">
+			</div>
+			<div class="form-group">
+				<label for="tile">Tile size</label>
+				<input type="text" id="tile" name="tile">
+			</div>
 		</form>
 	</div>
 	<script>
