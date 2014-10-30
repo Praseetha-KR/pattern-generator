@@ -38,25 +38,22 @@
 		var stripe = document.getElementById("stripe");
 		var angle = document.getElementById("angle");
 		var tile = document.getElementById("tile");
+		function setBgImg(angle, stripe) {
+			html.style.backgroundImage = "linear-gradient("+ angle + "deg, " + stripe + " 25%, transparent 25%, transparent 50%, " + stripe + " 50%, " + stripe + " 75%, transparent 75%, transparent)";
+		}
 		bg.onkeyup = function() {
 			html.style.backgroundColor = bg.value;
 		}
 		stripe.onkeyup = function() {
-			if (angle.value) {
-				html.style.backgroundImage = "linear-gradient("+ angle.value + "deg, " + stripe.value + " 25%, transparent 25%, transparent 50%, " + stripe.value + " 50%, " + stripe.value + " 75%, transparent 75%, transparent)";
-			} else {
-				html.style.backgroundImage = "linear-gradient(45deg, " + stripe.value + " 25%, transparent 25%, transparent 50%, " + stripe.value + " 50%, " + stripe.value + " 75%, transparent 75%, transparent)";
-			}
+			if (angle.value) { setBgImg(angle.value, stripe.value); } 
+			else { setBgImg(45, stripe.value); }
 		}
 		tile.onkeyup = function() {
 			html.style.backgroundSize = tile.value + "px " + tile.value + "px";
 		}
 		angle.onkeyup = function() {
-			if (stripe.value) {
-				html.style.backgroundImage = "linear-gradient("+ angle.value + "deg, " + stripe.value + " 25%, transparent 25%, transparent 50%, " + stripe.value + " 50%, " + stripe.value + " 75%, transparent 75%, transparent)";
-			} else {
-				html.style.backgroundImage = "linear-gradient(" + angle.value + "deg, rgba(255,255,255,0.5) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.5) 75%, transparent 75%, transparent)";
-			}
+			if (stripe.value) { setBgImg(angle.value, stripe.value); } 
+			else { setBgImg(angle.value, "rgba(255,255,255,0.5)"); }
 		}
 	</script>
 </body>
